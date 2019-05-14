@@ -1,10 +1,20 @@
-require 'redcarpet'
-require 'json'
 def file_write(_html)
   File.open('output/output.html', 'w+') do |f|
     puts _html
     f.puts _html
   end
+end
+
+def markdown_parse(md)
+  require 'redcarpet'
+  require 'json'
+  # 引数(文字列)をHTMLにレンダリング
+  parsed_html = Markdown_Parser.render(md)
+
+  File.open('html_class.json', 'r') do |f|
+    replace_table = JSON.parse(f.read)
+  end
+
 end
 #######################################
 ############## Main Method ############
@@ -19,7 +29,7 @@ FILENAME = ARGV[0]
 md = '' # Initialize markdown definision
 
 File.open(FILENAME, 'r') do |f|
-  md = Markdown_Parser.render(f.read)
+  md = markdown_parse(f.read)
 end
 
 HTML = "<!DOCTYPE HTML>
@@ -35,4 +45,5 @@ HTML = "<!DOCTYPE HTML>
 </body>
 </html>
 ".freeze
+
 file_write(HTML)
