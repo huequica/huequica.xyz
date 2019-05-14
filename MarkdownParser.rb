@@ -11,7 +11,10 @@ end
 #######################################
 
 Markdown_Parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-
+if ARGV[0] == nil
+  puts '** input filename. **'
+  exit
+end
 FILENAME = ARGV[0]
 md = '' # Initialize markdown definision
 
@@ -32,3 +35,4 @@ HTML = "<!DOCTYPE HTML>
 </body>
 </html>
 ".freeze
+file_write(HTML)
