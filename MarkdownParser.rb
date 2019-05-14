@@ -1,9 +1,23 @@
 require 'redcarpet'
 require 'json'
+def file_write(_html)
+  File.open('output/output.html', 'w+') do |f|
+    puts _html
+    f.puts _html
+  end
+end
+#######################################
+############## Main Method ############
+#######################################
 
 Markdown_Parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-md = Markdown_Parser.render()
-# puts Markdown_Parser.render(md)
+
+FILENAME = ARGV[0]
+md = '' # Initialize markdown definision
+
+File.open(FILENAME, 'r') do |f|
+  md = Markdown_Parser.render(f.read)
+end
 
 HTML = "<!DOCTYPE HTML>
 <html>
@@ -18,5 +32,3 @@ HTML = "<!DOCTYPE HTML>
 </body>
 </html>
 ".freeze
-
-puts HTML
