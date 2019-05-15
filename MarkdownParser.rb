@@ -7,9 +7,12 @@ def markdown_parse(md)
   parsed_html = markdown_parser.render(md)
   replace_table = {}
 
+  # JSONファイル開いてHTMLタグ置き換えの準備
   File.open('html_class.json', 'r') do |f|
     replace_table = JSON.parse(f.read)
   end
+  
+  # 置き換え
   replace_table.each do |_html_tag, replace_tag|
     parsed_html.gsub!(/#{_html_tag}/, replace_tag)
   end
