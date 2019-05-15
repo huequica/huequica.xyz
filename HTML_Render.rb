@@ -10,6 +10,18 @@ class HTML_Render
     </head>
 
     <body>
+    <section class=\"hero is-primary\">
+      <div class=\"hero-body\">
+        <div class=\"container\">
+          <h1 class=\"title\">
+           タイトル
+          </h1>
+          <h2 class=\"subtitle\">
+          サブタイトル
+          </h2>
+        </div>
+      </div>
+    </section>
     <div class=\"content\">
     #{md}
     </div>
