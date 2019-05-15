@@ -10,7 +10,9 @@ class HTML_Render
     </head>
 
     <body>
+    <div class=\"content\">
     #{md}
+    </div>
     </body>
     </html>
     ".freeze
