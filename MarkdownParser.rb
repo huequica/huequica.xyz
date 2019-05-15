@@ -1,3 +1,27 @@
+def markdown_parse(md)
+  require 'redcarpet'
+  require 'json'
+  markdown_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+
+  # 引数(文字列)をHTMLにレンダリング
+  p parsed_html = markdown_parser.render(md)
+  replace_table = {}
+
+  File.open('html_class.json', 'r') do |f|
+    p replace_table = JSON.parse(f.read)
+  end
+  replace_table.each do |_html_tag, replace_tag|
+    p parsed_html.gsub!(/#{_html_tag}/, replace_tag)
+  end
+  parsed_html
+end
+
+def markdown_merge_html(md)
+  require "#{__dir__}/HTML_Render"
+  html = HTML_Render.new
+  html.render(md)
+end
+
 def file_write(_html)
   File.open('output/output.html', 'w+') do |f|
     puts _html
@@ -5,31 +29,19 @@ def file_write(_html)
   end
 end
 
-def markdown_parse(md)
-  require 'redcarpet'
-  require 'json'
-  # 引数(文字列)をHTMLにレンダリング
-  parsed_html = Markdown_Parser.render(md)
-
-  File.open('html_class.json', 'r') do |f|
-    replace_table = JSON.parse(f.read)
-  end
-
-end
 #######################################
 ############## Main Method ############
 #######################################
-
-Markdown_Parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-if ARGV[0] == nil
+if ARGV[0].nil?
   puts '** input filename. **'
   exit
 end
 FILENAME = ARGV[0]
-md = '' # Initialize markdown definision
+html = ''
 
+# read Markdown Files
 File.open(FILENAME, 'r') do |f|
-  md = markdown_parse(f.read)
+  html = markdown_parse(f.read)
 end
-
-file_write(HTML)
+html = markdown_merge_html(html)
+file_write(html)
