@@ -4,14 +4,14 @@ def markdown_parse(md)
   markdown_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   # 引数(文字列)をHTMLにレンダリング
-  p parsed_html = markdown_parser.render(md)
+  parsed_html = markdown_parser.render(md)
   replace_table = {}
 
   File.open('html_class.json', 'r') do |f|
-    p replace_table = JSON.parse(f.read)
+    replace_table = JSON.parse(f.read)
   end
   replace_table.each do |_html_tag, replace_tag|
-    p parsed_html.gsub!(/#{_html_tag}/, replace_tag)
+    parsed_html.gsub!(/#{_html_tag}/, replace_tag)
   end
   parsed_html
 end
