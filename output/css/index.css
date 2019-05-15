@@ -1,0 +1,14 @@
+h1.title.with-sectionbar {
+  width: 65vw;
+  /* height: calc(auto + 36px); */
+  background-color: #ffbf7f;
+  padding: 8px;
+}
+
+div.content {
+  margin:0.5rem;
+}
+
+ul {
+  list-style: circle none inside;
+}
