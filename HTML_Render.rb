@@ -4,7 +4,7 @@ class HTML_Render
     <html>
     <head>
       <title>test</title>
-      <link rel=\"stylesheet\" href=\"css/bulma.css\">
+      <link rel=\"stylesheet\" href=\"css/node_modules/bulma/css/bulma.css\">
       <link rel=\"stylesheet\" href=\"css/index.css\">
       <meta charset='utf-8'>
     </head>
