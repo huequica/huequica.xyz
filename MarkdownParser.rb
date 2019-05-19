@@ -1,7 +1,7 @@
 def markdown_parse(md)
   require 'redcarpet'
   require 'json'
-  markdown_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  markdown_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true)
 
   # 引数(文字列)をHTMLにレンダリング
   parsed_html = markdown_parser.render(md)
@@ -11,7 +11,7 @@ def markdown_parse(md)
   File.open('html_class.json', 'r') do |f|
     replace_table = JSON.parse(f.read)
   end
-  
+
   # 置き換え
   replace_table.each do |_html_tag, replace_tag|
     parsed_html.gsub!(/#{_html_tag}/, replace_tag)
