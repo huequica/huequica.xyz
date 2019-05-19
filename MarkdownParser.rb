@@ -19,10 +19,10 @@ def markdown_parse(md)
   parsed_html
 end
 
-def markdown_merge_html(md)
+def markdown_merge_html(md, _title, *_args)
   require "#{__dir__}/HTML_Render"
   html = HTML_Render.new
-  html.render(md)
+  html.render(md, _title, *_args)
 end
 
 def file_write(_html)
@@ -46,5 +46,5 @@ html = ''
 File.open(FILENAME, 'r') do |f|
   html = markdown_parse(f.read)
 end
-html = markdown_merge_html(html)
+html = markdown_merge_html(html, 'Title', 'subtitle')
 file_write(html)

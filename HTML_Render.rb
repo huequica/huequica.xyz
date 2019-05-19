@@ -1,9 +1,10 @@
 class HTML_Render
-  def render(md)
-    %Q[<!DOCTYPE HTML>
+  def render(_md, title, *_args)
+    p title, _args[0]
+    %(<!DOCTYPE HTML>
     <html>
     <head>
-      <title>test</title>
+      <title>#{title}</title>
       <link rel="stylesheet" href="css/node_modules/bulma/css/bulma.css">
       <link rel="stylesheet" href="css/index.css">
       <meta charset='utf-8'>
@@ -14,21 +15,21 @@ class HTML_Render
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-           タイトル
+           #{title}
           </h1>
           <h2 class="subtitle">
-          サブタイトル
+          #{_args[0]}
           </h2>
         </div>
       </div>
     </section>
     <section class="section">
     <div class="content">
-    #{md}
+    #{_md}
     </div>
     </section>
     </body>
     </html>
-  ].freeze
+  ).freeze
   end
 end
