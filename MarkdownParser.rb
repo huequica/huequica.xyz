@@ -1,7 +1,11 @@
 def markdown_parse(md)
   require 'redcarpet'
   require 'json'
-  markdown_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true)
+  markdown_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+                                            tables: true,
+                                            autolink: true,
+                                            fenced_code_blocks: true,
+                                            strikethrough: true)
 
   # 引数(文字列)をHTMLにレンダリング
   parsed_html = markdown_parser.render(md)

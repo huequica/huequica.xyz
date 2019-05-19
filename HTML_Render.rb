@@ -29,6 +29,6 @@ class HTML_Render
     </section>
     </body>
     </html>
-  ).freeze
+    ).freeze
   end
 end
