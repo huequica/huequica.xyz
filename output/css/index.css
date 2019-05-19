@@ -5,6 +5,9 @@ h1.title.with-sectionbar {
   padding: 8px;
 }
 
+.content table {
+  width: auto;
+}
 ul {
   list-style: circle none inside;
 }
