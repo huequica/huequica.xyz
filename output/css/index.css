@@ -5,10 +5,6 @@ h1.title.with-sectionbar {
   padding: 8px;
 }
 
-div.content {
-  margin:0.5rem;
-}
-
 ul {
   list-style: circle none inside;
 }
