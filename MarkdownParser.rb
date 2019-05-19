@@ -35,16 +35,27 @@ end
 #######################################
 ############## Main Method ############
 #######################################
+title = 'title'
+subtitle = 'subtitle'
+html = ''
+
 if ARGV[0].nil?
   puts '** input filename. **'
   exit
 end
 FILENAME = ARGV[0]
-html = ''
+
+ARGV.each_with_index do |option, index|
+  title = ARGV[index + 1] if option == '--title'
+  subtitle = ARGV[index + 1] if option == '--subtitle'
+end
+
+# タイトルの引数設定がない場合に質問する
+title = asktitle if title == ''
 
 # read Markdown Files
 File.open(FILENAME, 'r') do |f|
   html = markdown_parse(f.read)
 end
-html = markdown_merge_html(html, 'Title', 'subtitle')
+html = markdown_merge_html(html, title, subtitle)
 file_write(html)

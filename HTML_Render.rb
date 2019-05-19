@@ -1,6 +1,5 @@
 class HTML_Render
   def render(_md, title, *_args)
-    p title, _args[0]
     %(<!DOCTYPE HTML>
     <html>
     <head>
