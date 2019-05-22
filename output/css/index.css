@@ -1,3 +1,19 @@
+nav {
+  width: 100vw;
+}
+
+section.hero {
+  margin-bottom: 24px;
+  width: 100vw;
+}
+
+.column.is-3 > div.box {
+  background-color: #f9fff9;
+  margin-left: 24px;
+  margin-right: 8px;
+}
+
+
 h1.title.with-sectionbar {
   width: 65vw;
   /* height: calc(auto + 36px); */
@@ -5,9 +21,19 @@ h1.title.with-sectionbar {
   padding: 8px;
 }
 
+.content {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .content table {
   width: auto;
 }
 ul {
   list-style: circle none inside;
+}
+
+pre code, code {
+  font-family: 'Inconsolata', monospace;
+  font-size: 1rem;
 }
