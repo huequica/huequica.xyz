@@ -1,9 +1,15 @@
 class HTML_Render
+
+  def initialize
+    @@blog_name = 'huequica.xyz'.freeze
+    @@blog_root_link = 'https://huequica.xyz'.freeze
+  end
+
   def render(_md, title, *_args)
     %(<!DOCTYPE HTML>
         <html>
         <head>
-          <title>もちもちきなこもち〜〜〜〜</title>
+          <title>#{title} | #{@@blog_name}</title>
           <link rel="stylesheet" href="css/node_modules/bulma/css/bulma.css">
           <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
           <link rel="stylesheet" href="css/index.css">
@@ -21,8 +27,8 @@ class HTML_Render
         <body>
           <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-              <a class="navbar-item" href="https://huequica.xyz">
-                <h2 class="subtitle is-4">huequica.xyz</h2>
+              <a class="navbar-item" href="#{@@blog_root_link}">
+                <h2 class="subtitle is-4">#{@@blog_name}</h2>
               </a>
 
               <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
