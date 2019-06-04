@@ -2,7 +2,7 @@ class HTML_Render
 
   def initialize
     @@blog_name = 'huequica.xyz'.freeze
-    @@blog_root_link = 'https://huequica.xyz'.freeze
+    @@blog_root_link = '/'.freeze
   end
 
   def render(_md, title, *_args)
@@ -10,9 +10,10 @@ class HTML_Render
         <html>
         <head>
           <title>#{title} | #{@@blog_name}</title>
-          <link rel="stylesheet" href="css/node_modules/bulma/css/bulma.css">
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" rel="stylesheet">
           <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
-          <link rel="stylesheet" href="css/index.css">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+          <link href="../index.css" rel="stylesheet">
           <meta charset='utf-8'>
           <meta name="viewport"
            content="width=320,
@@ -21,7 +22,7 @@ class HTML_Render
           minimum-scale=1.0,
           maximum-scale=2.0,
           user-scalable=yes" />
-          <script type="text/javascript" src="index.js"></script>
+          <script type="text/javascript" src="../navbar.js"></script>
         </head>
 
         <body>
@@ -40,11 +41,11 @@ class HTML_Render
 
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="/about/">
                   About me
                 </a>
 
-                <a class="navbar-item">
+                <a class="navbar-item" href="https://works.huequica.xyz">
                   Works
                 </a>
               </div>
@@ -69,15 +70,9 @@ class HTML_Render
         <div class="columns">
           <div class="column is-3">
             <div class="box">
-            <div class="backnumber">
-            <h2 class="subtitle is-4">バックナンバー</h1>
-              <ul>
-                <li>項目1 -2019/01/01</li>
-                <li>項目2 -2019/01/01</li>
-                <li>項目3 -2019/01/01</li>
-                <li>項目4 -2019/01/01</li>
-              </ul>
-            </div>
+              <div class="ShareButton">
+                <h2 class="subtitle is-4">Share</h2>
+              </div>
             </div>
           </div>
         <div class="column">
@@ -87,6 +82,7 @@ class HTML_Render
           </div>
         </div>
     </body>
+    <script src="../index.js"></script>
     </html>
     ).freeze
   end
