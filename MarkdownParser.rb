@@ -40,7 +40,7 @@ end
 ############## Main Method ############
 #######################################
 title = 'title'
-subtitle = 'subtitle'
+subtitle = ''
 html = ''
 
 if ARGV[0].nil?
