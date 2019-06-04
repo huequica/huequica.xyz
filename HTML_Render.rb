@@ -22,7 +22,6 @@ class HTML_Render
           minimum-scale=1.0,
           maximum-scale=2.0,
           user-scalable=yes" />
-          <script type="text/javascript" src="../navbar.js"></script>
         </head>
 
         <body>
@@ -67,20 +66,22 @@ class HTML_Render
           </div>
         </section>
 
-        <div class="columns">
-          <div class="column is-3">
-            <div class="box">
-              <div class="ShareButton">
-                <h2 class="subtitle is-4">Share</h2>
-              </div>
-            </div>
-          </div>
+      <div class="columns">
         <div class="column">
           <div class="content">
             #{_md}
 
           </div>
         </div>
+
+        <div class="column is-3">
+          <div class="box">
+            <div id="sharebuttons">
+              <h2 class="subtitle is-4">Share</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
     <script src="../index.js"></script>
     </html>
